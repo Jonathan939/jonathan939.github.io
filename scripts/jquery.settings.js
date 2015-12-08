@@ -16,12 +16,16 @@
 $(document).ready(function()
 {
     
+    /* TO DO: Encapsulate starting vars in object literal or init module */
+    
     /* the transition width over which accordions aren't needed */
     var transition_width = 644; // (in pixels)
     
     /* get the accordion and controls within the Account Settings pane */
     var all_accordions = $("#edit-settings").find(".accordion");
     var all_controls = $("#edit-settings").find(".accordion-control");
+    
+    /* TO DO: Encapsulate in initialization module (include event listener bindings) */
     
     /* show the accordion controls and collapse the accordions if below transition width */
     if ($(window).width() < transition_width)
@@ -33,6 +37,9 @@ $(document).ready(function()
         /* save closed state to accordions */
         all_accordions.data("collapsed",true);
     }
+    
+    
+    /* TO DO: Encapsulate in module before binding */
     
     /* bind event listeners to the accordion controls */
     all_controls.click(function()
@@ -72,8 +79,11 @@ $(document).ready(function()
     }); // end of click()
     
     
+    /* TO DO: Encapsulate in module before binding */
+    /* TO DO: Make accordion sections revert to last user-set position when resized back to mobile. */
+    
     /* bind listeners to the resize event */ 
-     $(window).resize({p1:all_accordions,p2:all_controls},function(e)
+    $(window).resize({p1:all_accordions,p2:all_controls},function(e)
     {
          
          /* get parameters from event object */
