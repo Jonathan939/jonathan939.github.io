@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <!-- Set page to fill entire viewport (esp. on mobile devices) -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Jonathan G Salomon">
+        
+        <title>UI Demo - Jonathan G Salomon</title>
+
+        <!-- HTML5 Reset Stylesheet by Richard Clark (minified) -->
+        <link rel="stylesheet" href="styles/html5reset-1.6.1.min.css">
+        <!-- Font Awesome Icons (as placeholder art) -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <!-- Main Stylesheet (minified) -->
+        <link rel="stylesheet" href="styles/settings.min.css">
+
+        <!-- Code to make Internet Explorer 9 or older play nice with HTML5, originally developed by John Resig --> 
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+         <!-- jQuery 2.1 (minified) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- Settings jQuery code (minified) -->
+        <script src="scripts/jquery.settings.min.js"></script> 
+        
+    </head>
+    <body>
+        <div id="settings-pane">
+            
+            <h1 id="settings-title">Account Settings</h1>
+
+            <form id="edit-settings">
+                <fieldset>
+                    <legend>User Information</legend>
+                    <div class="accordion-control"><span class="fa fa-chevron-up"><!-- Font Awesome Chevron --></span></div>
+
+                    <div class="accordion">
+                            
+                        <label>Name:<input type="text" name="user-account-full-name" id="account-full-name" placeholder="First Last"></label>
+                        <label>Email:<input type="email" name="user-account-email" id="account-email" placeholder="(This is your login name)"></label>
+                        <label>Mobile Phone:<input type="email" name="user-account-mobile-phone" id="account-mobile-phone" placeholder="(Used for account verification only)"></label>
+                    
+                        <button type="button" class="mobile-button" id="save-account-button">Save User Information</button>
+                    
+                    </div><!-- /accordion -->
+                </fieldset>
+                
+                <fieldset>
+                        <legend class="accordion-title">Notifications<small>(Account alerts, order and shipping information, newsletters)</small></legend>
+                        <div class="accordion-control"><span class="fa fa-chevron-up"><!-- Font Awesome Chevron --></span></div>
+
+                        <div class="accordion">
+                            
+                            <fieldset>
+                                <legend> Email</legend>
+                                
+                                <label>Email Address:<input type="email" class="three-fourths-width" name="user-notification-email-address" id="notification-email-address" placeholder="(For Notificatios Only)"></label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="user-notification-email" value="invoices" id="notification-email-alerts">
+                                    Account Alerts (Notificaiton of password changes, etc.)
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="user-notification-email" value="statements" id="notification-email-reciepts-shipping">
+                                    Order Reciepts and Shipping Notifictions 
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="user-notification-email" value="acknowledgements" id="notification-email-newsletters">
+                                    Weekly Newsletters
+                                </label>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Text Messages (SMS)</legend>
+                                
+                                <label>Phone Number:<input type="tel" class="three-fourths-width" name="user-notification-sms-number" id="notification-sms-number" placeholder="(For Notifications Only)"></label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="user-notification-sms" value="invoices" id="notification-sms-alerts">
+                                    Account Alerts (Notificaiton of password changes, etc.)
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="user-notification-sms" value="statements" id="notification-sms-shipping">
+                                    Shipping Notifications
+                                </label>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Mail</legend> 
+                                <label>Send Notifications To:<select name="user-notification-address" id="notification-address">
+                                    <option value="billing-adrress">Billing Address</option>
+                                    <option value="shipping-adrress">Shipping Address</option>
+                                    </select></label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="user-notification-mail" value="invoices" id="notification-mail-reciepts">
+                                    Order Reciepts 
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="user-notification-mail" value="statements" id="notification-mail-newsletters">
+                                    Weekly Newsletters
+                                </label>
+                            </fieldset>
+                            
+                            <button type="button" class="mobile-button" id="save-notifications">Save Notification Settings</button>
+                        
+                        </div><!-- /accordion -->
+                            
+                </fieldset><!-- /Notifications -->
+                
+                <fieldset>
+                    <legend>Change Password</legend>
+                    <div class="accordion-control"><span class="fa fa-chevron-up"><!-- Font Awesome Chevron --></span></div>
+
+                    <div class="accordion">
+                        
+                        <label>New Password:<input type="password" name="user-password-1" id="password" placeholder="(Minimum of 8 letters, numbers or symbols)"></label>
+                        <label>Verify New Password:<input type="password" name="user-password-2" id="password-verify" placeholder="(Please type your new password again)"></label>
+                    
+                        <button type="button" class="mobile-button" id="change-password-button">Change Password</button>
+                        
+                    </div><!-- /accordion -->
+                </fieldset>
+
+                <fieldset>
+                    <legend class="accordion-title">Billing Information</legend>
+                    <div class="accordion-control"><span class="fa fa-chevron-up"><!-- Font Awesome Chevron --></span></div>
+                    
+                    <div class="accordion">
+                        
+                        <label>Name On Card:<input type="text" name="user-card-name" id="card-name" placeholder="(Exactly as shown on card)"></label>
+                        <label>Credit Card Number:<input type="text" name="user-card-number" id="card-number" placeholder="•••• •••• •••• ••••"></label>            
+                        <label>Card Expiration Date:<input type="text" name="user-card-exp-date" id="card-exp-date" placeholder="MM / YYYY"></label>
+                        <label>Card Security Code: <a href="http://www.creditcards.com/credit-card-news/credit-card-verification-numbers-security-code-1282.php" class="csc-explanation">(Where is this?)</a><input type="text" name="user-card-cvv" id="card-cvv" placeholder="(3-4 digit number, usually on back of card)"></label>
+                        
+                         <button type="button" class="mobile-button" id="save-billing-information">Save Billing Information</button>
+                     
+                    </div><!-- /accordion -->
+                </fieldset>
+                        
+                <fieldset>
+                    <legend class="accordion-title">Billing Address</legend>
+                    <div class="accordion-control"><span class="fa fa-chevron-up"><!-- Font Awesome Chevron --></span></div>
+                    
+                    <div class="accordion">
+                            
+                            <label>Address Line 1:<input type="text" name="user-billing-address-street-1" id="billing-address-street-1" placeholder="Street Address, PO Box, Company Name, etc."></label>
+                            <label>Address Line 2:<input type="text" name="user-billing-address-street-2" id="billing-address-street-2" placeholder="Apartment, Suite, Building, etc."></label>
+                            <label>City:<input type="text" name="user-billing-adddress-city" id="billing-adddress-city"></label>
+                            <label>State / Province / Region:<input type="text" name="user-billing-adddress-state" id="billing-adddress-state"></label>
+                            <label>Zip:<input type="text" name="user-billing-adddress-zip" id="billing-adddress-zip"></label>
+                            <label>Country:<input type="text" name="user-billing-adddress-country" id="billing-address-country"></label>
+
+                        <button type="button" class="mobile-button" id="save-billing-address">Save Billing Address</button>
+                        
+                    </div><!-- /accordion -->    
+                </fieldset><!-- / Addresses -->
+
+                 <fieldset>
+                    <legend class="accordion-title">Shipping Address</legend>
+                    <div class="accordion-control"><span class="fa fa-chevron-up"><!-- Font Awesome Chevron --></span></div>
+                    
+                    <div class="accordion">
+             
+                        <label class="checkbox-emphasis">
+                            <input type="checkbox" name="shipping-to-billing" id="set-shipping-to-billing">
+                            Same As Billing Address
+                        </label>
+
+                        <label>Name:<input type="text" name="user-shipping-address-name" id="shipping-address-name" placeholder="First Last"></label>
+                        <label>Address Line 1:<input type="text" name="user-shipping-address-street-1" id="shipping-address-street-1" placeholder="Street Address, PO Box, Company Name, etc."></label>
+                        <label>Address Line 2:<input type="text" name="user-shipping-address-street-2" id="shipping-address-street-2" placeholder="Apartment, Suite, Building, etc."></label>
+                        <label>City:<input type="text" name="user-shipping-adddress-city" id="shipping-adddress-city"></label>
+                        <label>State / Province / Region:<input type="text" name="user-shipping-adddress-state" id="shipping-adddress-state"></label>
+                        <label>Zip:<input type="text" name="user-shipping-adddress-zip" id="shipping-adddress-zip"></label>
+                        <label>Country:<input type="text" name="user-shipping-adddress-country" id="shipping-address-country"></label>
+                        <label>Phone Number:<input type="tel" name="user-shipping-address-phone" id="shipping-address-phone" placeholder="(To assist in delivery only)"></label>
+
+                        <button type="button" class="mobile-button" id="save-shipping-address">Save Shipping Address</button>
+                        
+                    </div><!-- /accordion -->    
+                    
+                </fieldset><!-- / Addresses -->
+                
+                <fieldset>
+                    <legend class="accordion-title">Shipping Addresses Book<small>(Manage additional shipping addresses for gifting, etc.)</small></legend>
+                    <div class="accordion-control"><span class="fa fa-chevron-up"><!-- Font Awesome Chevron --></span></div>
+                        
+                    <div class="accordion">
+                        
+                        <label>Select Address:
+                        <select name="user-selected-alt-address" id="selected-alt-addresses">
+                            <option value="alt-adrress-2">Jessie</option>
+                            <option value="alt-adrress-3">Peter Smith</option>
+                            <option value="alt-adrress-4">Janice Smith</option>
+                        </select></label> 
+
+                        <button type="button" id="edit-alt-address">Edit Address</button>
+                        <button type="button" id="add-alt-address">Add New Address</button>
+                        <button type="button" class="delete-button" id="delete-alt-address">Delete Address</button>
+                    </div><!-- /accordion -->
+                    
+                </fieldset>
+                                
+                <button type="submit" class="desktop-button" id="save-all-changes">Save Account Settings</button> 
+
+                
+            </form><!-- /edit-settings -->
+           
+        </div><!-- /settings -->
+    </body>
+</html>

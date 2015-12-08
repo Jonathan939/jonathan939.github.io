@@ -1,0 +1,496 @@
+/* settings.css */
+
+
+/**********************************************************
+* Stylesheet for the Account Settings Demo Form
+*
+* Author: Jonathan G. Salomon
+* Version: 1.0
+* Laat Updated: 10-17-2015
+*
+* NOTE: This CSS file assumes that the HTML5 Doctor's
+* reset stylesheet (html5reset-1.6.1.css) has already
+* been applied to the page!
+*
+* This CSS file sets all the styles for the Account
+* Settings form. The layout is responsive, with 3
+* flexible columns that collapse to 2 and then a single
+* column depending on screen size. The single-column
+* layout also adds additional submit buttons and
+* collapsed sections not found in the wider layouts.
+*
+***********************************************************/
+
+
+/**********************************************************
+*  Universal Styles
+***********************************************************/
+
+/* background color for the account settings demo panel */
+body
+{
+    background-color: darkgray;
+    background-image: url("images/sample.png");
+}
+/* outer pane of the settings panel (default color) */
+#settings-pane
+{
+        background-color: #444444;
+        border-bottom: 2px solid gray;
+        /* make sure nothing leaves the preferencs pane */
+        position: relative;
+}
+/* style the settings title block*/
+#settings-title
+{
+    display: block;
+    height: 40px;
+    width: 100%;
+    color: white;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 18px;
+    line-height: 40px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-align: left;
+    /* leave space for the gear icon (when it loads) */
+    padding-left: 36px;
+    /* ensure that the header fits within the pane */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#settings-title:before
+{
+    content: "\f013"; /* 'cog' Font Awesome icon */
+	font-family: FontAwesome;
+    position: absolute;
+    top: 1px;
+    left: 15px;
+}
+
+/* styles for the whole form */
+#edit-settings
+{
+    background-color: white;
+    padding: 12px;
+    /* ensure that the form won't shrink too narrowly to be useful */
+    min-width: 300px;
+}
+
+/* styling of outer fieldsets */
+#edit-settings > fieldset
+{
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin-bottom: 12px;
+    width: 100%;
+    /* ensure that content stays within the fieldset */
+    position: relative;
+    /* ensure that the fieldset fits within the form */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* position and style the fieldset labels */
+#edit-settings > fieldset legend
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+    
+    /* move the legend label into its box on its own line */
+    display: block;
+    float: left;
+    width: 100%;
+    padding-bottom: 0px;
+}
+/* de-emphasize fieldset sub-labels and move them onto their own line */
+#edit-settings > fieldset legend small
+{
+    display: block;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 12px;
+    margin-top: 5px;
+    color: darkgray;
+}
+
+/* style any inner-fieldsets */
+#edit-settings fieldset fieldset
+{
+    /* compensate for the padding from the outer fieldset */
+    margin: 0px -10px 0px -10px; /* (needed to get correct border spacing) */
+    
+    /* return padding to the items in the fieldset (except bottom) */
+    padding: 10px 10px 0px 10px;
+    
+    /* create a dotted border on the bottom */ 
+    border-top: 1px dotted lightgray;
+    
+     /* ensure that inner-fieldsets fit within the fieldset */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* style labels on the inner fieldsets */
+#edit-settings fieldset fieldset legend
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+    
+    /* move the legend label into its box on its own line */
+    display: block;
+    float: left;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+/* style the form labels (and spacing between inputs) */
+#edit-settings label
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    color: black;
+    margin: 0px 0px 10px 0px;
+    display: block;
+}
+
+
+/*    RESUME HERE!!! */
+
+/* style input boxes */
+#edit-settings input[type="text"],
+#edit-settings input[type="tel"],
+#edit-settings input[type="email"],
+#edit-settings input[type="password"]
+{
+    border: solid 1px whitesmoke;
+    box-shadow: inset 1px 1px 0px 0 darkgray;
+    font-size: 10px;
+    color: black;
+    height: 24px;
+    width: 100%;
+    padding-left: 5px;
+    margin-top: 2px;
+    
+    /* ensure that the box fits within fieldset */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* style the checkboxes */
+#edit-settings input[type="checkbox"]
+{
+    /* remove excess space from the checkboxes */
+    padding: 0;
+    margin: 0;
+}
+
+/* style labels for the checkboxes */
+#edit-settings label.checkbox
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    
+    display: block;
+    width: 100%;
+    margin: 0px 0px 10px 5px;
+}
+/* style the more prominent labels for the checkboxes */
+#edit-settings label.checkbox-emphasis
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    color: black;
+    
+    display: block;
+    width: 100%;
+    margin: 5px 0px 10px 0px;
+}
+
+/* style select boxes */
+#edit-settings select
+{
+    border: 1px solid gray;
+    color: black;
+    background-color: white;
+    font-size: 12px;
+    height: 26px;
+    width: 100%;
+    padding-left: 5px;
+    margin-top: 2px;
+    display: block;
+    
+    /* ensure that the select box fits within the fieldset */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    /* remove all browser stylings (only works in webkit for now) */
+    -webkit-appearance: none;
+    -moz-appearance: none; /* (maybe some day...) */
+    
+    /* add a background image of a down arrow (the only image file in this project) */
+    background: url(images/select-arrow-transparent.png) no-repeat 98% 0%;
+    
+    /* remove any rounded corners */
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;   
+}
+
+/* style the Card Security Code Info link */
+a.csc-explanation
+{
+    /* match link to buttons on page */
+    color: #458BC8;
+    /* remove the underline from this link */
+    text-decoration: none;
+    
+    /* hide the link text from everyone but screen readers! */
+    display: inline-block;
+    position: relative; /* contains the Font Awesome icon we are adding after */
+    left: -9999px; /* pushes content far off the screen */
+}
+a.csc-explanation:hover
+{
+    /* remove the hover effect, replace with color change */
+    text-decoration: none;
+    color: #4081b7; /* same as other buttons */
+}
+a.csc-explanation:active
+{
+    /* remove the hover effect, replace with color change */
+    text-decoration: none;
+    color: #2F6FA0; /* same as other buttons */
+}
+/* add the question mark Font Awesome icon in place of the link text */
+a.csc-explanation:after
+{
+    content: "\f059"; /* 'fa-question-circle' Font Awesome icon */
+	font-family: FontAwesome;
+    padding-right: 5px;
+    font-size: 14px;
+    /* bring the icon back to the page */
+    position: absolute;
+    top: -1px;
+    left: 9999px;
+}
+
+/* style the Submit button (green) */
+#edit-settings button[type="submit"]
+{
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 25px;
+    font-family: Verdana, Geneva, sans-serif;
+    background-color: #4CBA6F;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0px;
+    padding: 0px;
+    border: solid 1px #7DAA77;
+    cursor: pointer;
+    /* round the borders slightly */
+    border-radius: 2px;
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px;
+}
+/* darken the Submit button when hovered over */
+#edit-settings button[type="submit"]:hover
+{
+    background-color: #40a560;
+}
+/* darken even further when clicked */
+#edit-settings button[type="submit"]:active
+{
+    background-color: #36844f;
+}
+
+/* style the belete form button (red) */
+#edit-settings button[type="button"].delete-button
+{
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 25px;
+    font-family: Verdana, Geneva, sans-serif;
+    background-color: #D42222;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0px;
+    padding: 0px;
+    border: solid 1px #2F6FA0;
+    cursor: pointer;
+    /* round the borders slightly */
+    border-radius: 2px;
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px;
+}
+/* darken the Delete button when hovered over */
+#edit-settings button[type="button"].delete-button:hover
+{
+    background-color: #BF2425;
+}
+/* darken even further when clicked */
+#edit-settings button[type="button"].delete-button:active
+{
+    background-color: #A51F1E;
+}
+
+/* style all other form buttons (blue) */
+#edit-settings button[type="button"]
+{
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 25px;
+    font-family: Verdana, Geneva, sans-serif;
+    background-color: #458BC8;
+    width: 100%;
+    height: 30px;
+    margin: 5px 0px;
+    padding: 0px;
+    border: solid 1px #2F6FA0;
+    cursor: pointer;
+    /* round the borders slightly */
+    border-radius: 2px;
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px;
+}
+/* darken the form button when hovered over */
+#edit-settings button[type="button"]:hover
+{
+    background-color: #4081b7;
+}
+/* darken even further when clicked */
+#edit-settings button[type="button"]:active
+{
+    background-color: #2F6FA0;
+}
+
+
+
+/**********************************************************
+*  Single-Column Viewport Styles (max-width < 643px)
+***********************************************************/
+@media screen and (max-width: 643px)
+{
+    /* NOTE: Styles above are for the default (mobile) layout! */
+}
+
+
+/**********************************************************
+*  Double-Column Viewport Styles (644px < width < 972px)
+***********************************************************/
+@media screen and (min-width: 644px) and (max-width: 972px)
+{
+
+    /* set up a two-column layout */
+    #edit-settings
+    {
+        /* set up a column layout for the fieldsets (300px min, 2 columns) */
+        -webkit-columns: 300px 2;
+        -moz-columns: 300px 2;
+        columns: 300px 2;
+        
+        /* set the gap between columns */
+        column-gap: 20px;
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+    }
+    
+    /* get fieldsets to display in columns without breaking */
+    #edit-settings > fieldset
+    {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid; /* Firefox */
+        break-inside: avoid;
+        display: inline-block; /* also helps avoid section breaks */
+    }
+
+}
+
+
+/**********************************************************
+*  Three-Column Viewport Styles (min-width > 973px)
+***********************************************************/
+@media screen and (min-width: 973px)
+{
+    
+    /* set up a three-column layout */
+    #edit-settings
+    {
+        /* set up a column layout for the fieldsets (300px min, 2 columns) */
+        -webkit-columns: 300px 3;
+        -moz-columns: 300px 3;
+        columns: 300px 3;
+    }
+    
+    /* get fieldsets to display in columns without breaking */
+    #edit-settings > fieldset
+    {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid; /* Firefox */
+        break-inside: avoid;
+        display: inline-block; /* also helps avoid section breaks */
+    }
+    
+    /* separate the form into its own panel (on wide desktp layouts) */
+    #settings-pane
+    {
+        /* give the panel a border */
+        border: 2px solid #656565;
+
+        /* layout for the desktop settings pane */
+        max-width: 1100px; /* keep settings pane from expanding too much */
+        margin: 0px auto 0px auto; /* center settings pane */
+    }
+    
+    /* hide mobile form buttons on wide desktop layouts */
+    #edit-settings .mobile-button
+    {
+        display: none;
+    }
+}
+
+
+/**********************************************************
+*  javascript / jQuery styles (needed for controls)
+***********************************************************/
+/* style the controls for the javascript-enabled accordions */
+div.accordion-control
+{
+    /* style the Font Awesome Character */
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    /* ensure control is big enough to touch */
+    width: 30px;
+    height: 30px;
+    /* move the control to the top-left corner of the screen */
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    
+    /* hide all accordion controls (revealed if javascript loads) */
+    display: none;
+}
+
+/* style the accordion itself */
+div.accordion
+{
+    clear: both; /* ensures accordion is separate from legend */
+    padding-top: 10px; /* ensures there is enough space between legend and rest of fieldset */
+}
