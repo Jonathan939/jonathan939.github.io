@@ -9,4 +9,4 @@ Finally, I decided to add all  control buttons and accordion sections directly i
 
 ~Jonathan G Salomon
 
-Feel free to contact me for questions or job offers.
+Feel free to contact me for questions.
