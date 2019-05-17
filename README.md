@@ -9,7 +9,7 @@ Since this is a UI mockup, the form is not fully funcitonal. There is no server-
 
 Finally, I decided to add all  control buttons and accordion sections directly into the HTML rather than using jQuery to add them during page load. While this means that the HTML is technically not 100% semantic, it makes the page far easier to maintain, as control buttons are now part of the HTML document where they typically reside. It also speeds up page loading by eliminating all the DOM manipulations that would be required to add the controls and accordions programmatically.
 
-Please note that these files have been extenisvely commented to aid readability by people who are not familiar with jQuery or HTML. I prefer self-documenting code, and do not use comments such as these when programming normally.
+Please note that these files have been extenisvely commented to aid readability by people who are not familiar with jQuery, CSS, or HTML. I prefer self-documenting code, and do not use comments such as these when programming normally.
 
 ~Jonathan G Salomon
 
